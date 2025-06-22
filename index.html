@@ -1,71 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="authorization_endpoint" href="https://indieauth.com/auth">
-  <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
-  <!-- To use social readers via microsub, follow these steps.
-    (Details: https://indieweb.org/Microsub#Getting_Started)
-    1. After publishing this to your domain, sign in to https://aperture.p3k.io/login with your domain
-    2. You will see a <link> tag displayed on your dashboard that looks like:
-      <link rel="microsub" href="https://aperture.p3k.io/microsub/000">
-    3. Copy that <link> tag and paste it after this HTML comment.
-    4. Publish the updated page!
-   -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spieltagsgedichte</title>
-  <link rel="icon" type="image/x-icon" href="tempelflick_even_smaller_now.jpg">
-  <style>
-    @media (prefers-color-scheme: dark) {
-      html { background-color: #111111; color: #fbfbfb; }
-      a { color: #ca8465; }
-    }
-    body {
-      line-height: 1.6;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-      text-align: center;
-      margin: 1rem auto;
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    img.u-photo { border-radius: 50%; }
-    ul { padding: 0; list-style: none; }
-  </style>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Special+Elite&display=swap" rel="stylesheet" />
+
+  <!-- Dein CSS -->
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- IndieAuth Meta-Tags -->
+  <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+  <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
 </head>
-
 <body>
-  <!-- Reference for representative h-card properties: https://microformats.org/wiki/h-card -->
-  <!--- Change to refresh -->
-  <main class="h-card" rel="author">
-      <img class="u-photo" alt="My profile photo" src="tempelflick_even_smaller_now.jpg"/>
-    <h1>
-      Spieltagsgedichte
-    </h1>
+  <a href="#maincontent" class="skip-link">Zum Hauptinhalt springen</a>
 
-    <p class="p-note">
-      ...das Buch.
-    </p>
+  <main id="maincontent" role="main" tabindex="-1">
+    <section class="h-card" rel="author" style="text-align:center; margin: 2rem auto; max-width: 600px;">
+  <img class="u-photo" alt="My profile photo" src="/img/tempelflick_even_smaller_now.jpg" style="border-radius: 50%; max-width: 150px;"/>
+  <h1>Spieltagsgedichte</h1>
+  <p class="p-note">...das Buch.</p>
+  <!-- BoD ShopWidget -->
+  <div id="bodShopWidget_4419941_print" class="bodShopWidget"></div>
+  <script type="text/javascript">
+    if(typeof checkLibExist == "undefined"){
+      var script = document.createElement("script");
+      script.src ="//www.bod.de/public/js/bod/v1.1/shopWidget.min.js";
+      script.type = "text/javascript";
+      document.head.appendChild(script);
+      var checkLibExist = true;
+    }
+    if(typeof books === "undefined") var books=[];
+    books.push({
+      "objID":"4419941",
+      "swKey":"4d385220a2c3ce06db052e75755dc4a1",
+      "type":"print",
+      "size":"button",
+      "font":"serif",
+      "shadow":false,
+      "contour":true,
+      "coverContour":true,
+      "fontColor":"#212529",
+      "contourColor":"#212529",
+      "shadowBtn":false,
+      "contourBtn":true,
+      "bgColor":"#fff",
+      "btnFontColor":"#fff",
+      "btnColor":"#fd6041",
+      "btnContourColor":"#fd6041",
+      "shop":"de",
+      "mandantShopUrl":"https://www.bod.de/buchshop",
+      "lang":"de"
+    });
+  </script>
+  <!-- End BoD ShopWidget -->
+  <h2>Gedichtarchiv</h2>
+<ul style="list-style: none; padding: 0;">
+  <li><a href="/seasons/24-25/">Saison 2024/25</a></li>
+  <li><a href="/seasons/23-24/">Saison 2023/24</a></li>
+  <li><a href="/seasons/22-23/">Saison 2022/23</a></li>
+  <!-- usw. -->
+</ul>
+  <ul style="list-style:none; padding: 0; margin-top: 1rem;">
+    <li><a href="mailto:leisetreter@gmx.de">E-Mail</a></li>
+    <li>Twitter: <a class="u-url" href="https://twitter.com/SkyperTweet" 
+rel="me">@SkyperTweet</a></li>
+  </ul>
+</section>
 
-<!-- ### Begin BoD ShopWidget -->
-<div id="bodShopWidget_4419941_print" class="bodShopWidget"></div><script type="text/javascript">if(typeof checkLibExist == "undefined"){var script = document.createElement("script");script.src ="//www.bod.de/public/js/bod/v1.1/shopWidget.min.js";script.type = "text/javascript";document.head.appendChild(script);var checkLibExist = true;}if(typeof books === "undefined") var books=[];books.push({"objID":"4419941","swKey":"4d385220a2c3ce06db052e75755dc4a1","type":"print","size":"button","font":"serif","shadow":false,"contour":true,"coverContour":true,"fontColor":"#212529","contourColor":"#212529","shadowBtn":false,"contourBtn":true,"bgColor":"#fff","btnFontColor":"#fff","btnColor":"#fd6041","btnContourColor":"#fd6041","shop":"de","mandantShopUrl":"https://www.bod.de/buchshop","lang":"de"});</script>
-<!-- ### End BoD ShopWidget -->
-
-    <ul>
-      <!-- Replace __this_page__ with your domain -->
-      <!-- <li><a class="u-uid u-url" href="https://spieltagsgedichte.de">Spieltagsgedichte</a></li> -->
-
-      <!-- Update or remove the below links! -->
-      
-      <!-- Replace _mytwitterid_ with your Twitter username in both places on the next line: -->
-      <a href="mailto:leisetreter@gmx.de">E-Mail</a>
-      <li>Twitter: <a class="u-url" href="https://twitter.com/SkyperTweet" rel="me">@SkyperTweet</a></li>
-
-    </ul>
   </main>
-</body>
 
+  <nav class="poem-nav" aria-label="Gedicht-Navigation">
+    <a href="/">🏠 Start</a>
+    <a href="/seasons/">❤️🖤 Alle Saisons</a>
+  </nav>
+</body>
 </html>
