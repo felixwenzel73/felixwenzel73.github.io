@@ -110,6 +110,21 @@ h3 {
   margin: 0.5rem 0;
 }
 
+/* Responsive design for navigation */
+@media (max-width: 600px) {
+  .nav-links,
+  .poem-navigation {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-link {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+}
+
 /* Saisonübersicht */
 .season-links {
   list-style: none;
