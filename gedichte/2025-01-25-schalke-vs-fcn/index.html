@@ -32,6 +32,7 @@
   <!-- IndieAuth Meta-Tags -->
   <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
   <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+  <link rel="webmention" href="https://webmention.io/spieltagsgedichte.de/webmention" />
   
   <!-- Favicon -->
 <link rel="icon" type="image/png" href="/img/favicon.png" sizes="64x64">
@@ -46,7 +47,9 @@
     
 <article class="h-entry" aria-label="Spieltagsgedicht">
   <h1 class="p-name poem-title">Sa, 25.01.25, FC Schalke 04 - 1. FCN 3:1</h1>
-<time class="visually-hidden" datetime="2025-01-25">25.01.2025</time>
+  <time class="dt-published visually-hidden" datetime="2025-01-25">25.01.2025</time>
+  <a class="u-url visually-hidden" href="https://spieltagsgedichte.de/gedichte/2025-01-25-schalke-vs-fcn/">Permalink</a>
+  <a class="p-author h-card visually-hidden" href="https://spieltagsgedichte.de/">Felix Wenzel</a>
   <div class="e-content">
     <!-- # Sa, 25.01.25, FC Schalke 04 - 1. FCN 3:1 -->
 <p>Warten auf den Tag, wenn wirklich alles gut ist</p>
@@ -74,6 +77,94 @@ Brudi.</p>
 
   </div>
 </article>
+
+<section id="webmentions" class="mentions" aria-live="polite" hidden>
+  <h2>Mentions</h2>
+  <ul id="webmentions-list" class="mentions-list"></ul>
+</section>
+
+<script>
+  (function() {
+    const permalink = "https://spieltagsgedichte.de/gedichte/2025-01-25-schalke-vs-fcn/";
+    const endpoint = "https://webmention.io/api/mentions.jf2?target=" + encodeURIComponent(permalink);
+    const container = document.getElementById("webmentions");
+    const list = document.getElementById("webmentions-list");
+
+    if (!container || !list) {
+      return;
+    }
+
+    function formatDate(isoDate) {
+      if (!isoDate) {
+        return "";
+      }
+      const date = new Date(isoDate);
+      if (Number.isNaN(date.getTime())) {
+        return "";
+      }
+      return date.toLocaleDateString("de-DE");
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function mentionTypeLabel(type) {
+      const labels = {
+        "mention-of": "Erwähnung",
+        "in-reply-to": "Antwort",
+        "like-of": "Like",
+        "repost-of": "Repost",
+        "bookmark-of": "Bookmark",
+        "rsvp": "RSVP"
+      };
+      return labels[type] || "Erwähnung";
+    }
+
+    fetch(endpoint)
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error("Could not load mentions");
+        }
+        return response.json();
+      })
+      .then(function(data) {
+        const mentions = (data.children || []).filter(function(item) {
+          return item && item.url;
+        });
+
+        if (!mentions.length) {
+          return;
+        }
+
+        const itemsHtml = mentions.map(function(item) {
+          const authorName = (item.author && item.author.name) ? item.author.name : "Unbekannt";
+          const authorUrl = (item.author && item.author.url) ? item.author.url : item.url;
+          const mentionType = item["wm-property"] || "mention-of";
+          const mentionLabel = mentionTypeLabel(mentionType);
+          const publishedDate = formatDate(item.published || item["wm-received"]);
+          const content = item.content && item.content.text ? item.content.text : "";
+          const excerpt = content ? escapeHtml(content).slice(0, 240) : "";
+
+          return "<li class=\"mention-item\">" +
+            "<a href=\"" + escapeHtml(authorUrl) + "\" rel=\"nofollow noopener noreferrer\">" + escapeHtml(authorName) + "</a>" +
+            " <span class=\"mention-meta\">(" + escapeHtml(mentionLabel) + (publishedDate ? " · " + escapeHtml(publishedDate) : "") + ")</span>" +
+            (excerpt ? "<p class=\"mention-excerpt\">" + excerpt + "</p>" : "") +
+            "</li>";
+        }).join("");
+
+        list.innerHTML = itemsHtml;
+        container.hidden = false;
+      })
+      .catch(function() {
+      });
+  })();
+</script>
 
   </main>
 

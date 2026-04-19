@@ -202,3 +202,39 @@ h3 {
   text-decoration: none;
 }
 
+.mentions {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #fefbf8;
+  border-left: 5px solid #fd6041;
+}
+
+.mentions h2 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.mentions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mention-item {
+  padding: 0.75rem 0;
+  border-top: 1px solid #e6e2dd;
+}
+
+.mention-item:first-child {
+  border-top: 0;
+}
+
+.mention-meta {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.mention-excerpt {
+  margin: 0.35rem 0 0;
+}
+
