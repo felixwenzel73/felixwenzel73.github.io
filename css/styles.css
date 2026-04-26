@@ -141,6 +141,28 @@ h3 {
   font-family: inherit;
 }
 
+.poem-sort-controls {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.poem-sort-controls button {
+  font-family: "Roboto Slab", serif;
+  font-size: 0.95rem;
+  border: 1px solid #990022;
+  background: #fff;
+  color: #990022;
+  border-radius: 999px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+}
+
+.poem-sort-controls button[aria-pressed="true"] {
+  background: #990022;
+  color: #fff;
+}
+
 /* Saisonübersicht */
 .season-links {
   list-style: none;
