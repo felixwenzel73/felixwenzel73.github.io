@@ -76,10 +76,22 @@ a:focus {
   text-decoration: none;
 }
 
-/* Shop Widget */
-.bodShopWidget {
-  display: flex;
-  justify-content: center;
+/* Autorenwelt buy CTA */
+.buy-cta {
+  display: inline-block;
+  background-color: #fd6041;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.65em 1.25em;
+  border: 2px solid #fd6041;
+  font-weight: 600;
+}
+.buy-cta:hover,
+.buy-cta:focus {
+  background-color: #e55438;
+  border-color: #e55438;
+  color: #fff;
+  text-decoration: none;
 }
 
 /* Gedichttitel mit Buchschrift */
