@@ -278,3 +278,63 @@ h3 {
   margin-top: 1.5em;
   color: #555;
 }
+
+/* Kopfleiste: immer sichtbar beim Scrollen */
+html {
+  scroll-padding-top: 4rem; /* Anker (z. B. Gedicht auf Saisonseite) nicht unter der Leiste verstecken */
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: -1em -1em 1.5rem; /* über das Body-Padding hinweg volle Breite */
+  background-color: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e6e2dd;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1em;
+}
+
+.site-header a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem; /* bequeme Tippfläche auf dem Handy */
+  color: #111;
+  text-decoration: none;
+}
+
+.site-header-home {
+  font-family: 'Special Elite', 'Courier New', Courier, monospace;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.site-header .site-header-link {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1rem;
+  color: #990022;
+}
+
+.site-header a:hover,
+.site-header a:focus {
+  text-decoration: underline;
+}
+
+.site-header a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+@media (max-width: 360px) {
+  .site-header-home {
+    font-size: 1.05rem;
+  }
+}
