@@ -272,3 +272,9 @@ h3 {
   margin: 0.35rem 0 0;
 }
 
+
+/* Lizenzhinweis im Footer */
+.footer-license {
+  margin-top: 1.5em;
+  color: #555;
+}
